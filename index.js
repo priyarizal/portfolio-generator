@@ -16,7 +16,7 @@ inquirer
         {
             type: 'input',
             message: 'Tell us an interesting fact about you',
-            name: 'facts,
+            name: 'facts'
         },
         {
             type: 'input',
@@ -27,15 +27,24 @@ inquirer
             type: 'input',
             message: 'What is your LinkedIn URL?',
             name: 'LinkedInURL',
-        },
-        {
-            type:"input",
-            message:"what is your favorite color",
-            name:"color"
         }
     ])
     .then((response) => {
         //console.log(response);
         let responseReturn = JSON.stringify(response)
-        fs.appendFileSync("index.html",responseReturn);
+        
+        fs.appendFileSync("index.html", ` 
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>doccc</title>
+        </head>
+        <body>
+            ${responseReturn}
+        </body>
+        </html>
+        `);
     });
