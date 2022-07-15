@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const fs = require("fs");
+const fs = require('fs');
 
 inquirer
     .prompt([
@@ -16,25 +16,26 @@ inquirer
         {
             type: 'input',
             message: 'Tell us an interesting fact about you',
-            name: 'facts',
+            name: 'facts,
         },
         {
             type: 'input',
             message: 'What is your Github URL?',
-            name: 'Github URL',
+            name: 'GithubURL',
         },
         {
             type: 'input',
             message: 'What is your LinkedIn URL?',
-            name: 'LinkedIn URL',
+            name: 'LinkedInURL',
+        },
+        {
+            type:"input",
+            message:"what is your favorite color",
+            name:"color"
         }
     ])
     .then((response) => {
-        console.log(response);
+        //console.log(response);
         let responseReturn = JSON.stringify(response)
-        fs.appendFileSync("response.txt",responseReturn)
+        fs.appendFileSync("index.html",responseReturn);
     });
-
-    
-
-  
